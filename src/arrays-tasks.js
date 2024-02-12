@@ -538,8 +538,6 @@ function propagateItemsByPositionIndex(arr) {
   });
 }
 
-console.log(propagateItemsByPositionIndex([1]));
-
 /**
  * Shifts an array by n positions. If n is negative, the array is shifted to the left;
  * if positive, it is shifted to the right.
@@ -553,8 +551,21 @@ console.log(propagateItemsByPositionIndex([1]));
  *    shiftArray(['a', 'b', 'c', 'd'], -1) => ['b', 'c', 'd', 'a']
  *    shiftArray([10, 20, 30, 40, 50], -3) => [40, 50, 10, 20, 30]
  */
-function shiftArray(/* arr, n */) {
-  throw new Error('Not implemented');
+function shiftArray(arr, n) {
+  const resultArr = arr.slice(0);
+  '0'
+    .repeat(Math.abs(n))
+    .split('')
+    .map(() => {
+      if (n >= 0) {
+        resultArr.unshift(resultArr.pop());
+      } else {
+        resultArr.push(resultArr.shift());
+      }
+      return 0;
+    });
+
+  return resultArr;
 }
 
 /**
